@@ -2,6 +2,28 @@
 
 [ext_resource type="Texture2D" uid="uid://dsajrq83k2pas" path="res://Assets/Cover.png" id="1_trqcy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_trqcy"]
+atlas = ExtResource("1_trqcy")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwdus"]
+atlas = ExtResource("1_trqcy")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0fct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trqcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwdus")
+}],
+"loop": true,
+"name": &"start",
+"speed": 3.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwdus"]
 bg_color = Color(0.09411765, 0.26666668, 0.76862746, 1)
 border_width_right = 8
@@ -37,10 +59,11 @@ corner_detail = 16
 
 [node name="StartScreen" type="Node2D" unique_id=783915929]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157634325]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=367739905]
 position = Vector2(960, 540)
-texture = ExtResource("1_trqcy")
-vframes = 2
+sprite_frames = SubResource("SpriteFrames_k0fct")
+animation = &"start"
+autoplay = "start"
 
 [node name="ButtonManager" type="Control" parent="." unique_id=752985689]
 layout_mode = 3
